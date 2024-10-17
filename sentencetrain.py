@@ -13,12 +13,12 @@ for example in tqdm(ds['train'], ascii=True):
 
 transition_counts = defaultdict(lambda: defaultdict(int))
 
-
 # Count the transitions between words
 for i in tqdm(range(len(words) - 1), ascii=True):
     current_word = words[i]
     next_word = words[i + 1]
     transition_counts[current_word][next_word] += 1
+
 # Convert counts to probabilities
 transition_probabilities = defaultdict(dict)
 for current_word, next_words in tqdm(transition_counts.items(), ascii=True):
